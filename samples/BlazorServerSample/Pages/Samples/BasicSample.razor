@@ -1,0 +1,10 @@
+@inject DialogService DialogService
+
+<button @onclick="Show">Basic sample</button>
+
+@code {
+    async void Show()
+    {
+        DialogResult result = await DialogService.ShowDialog<HelloWorldComponent>();
+    }
+}
