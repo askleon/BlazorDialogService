@@ -13,4 +13,16 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
   </ItemGroup>
 
+  <!-- Nuget -->
+  <PropertyGroup>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
+    <PackageId>LeonAsk.BlazorDialogService.DialogComponent</PackageId>
+    <Authors>Leon Ask</Authors>
+    <Description>A dialog service for blazor.</Description>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageTags>Blazor, Dialog, Service</PackageTags>
+    <RepositoryUrl>https://github.com/askleon/BlazorDialogService</RepositoryUrl>
+  </PropertyGroup>
+
 </Project>
