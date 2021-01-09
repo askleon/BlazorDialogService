@@ -1,6 +1,7 @@
 # About
 - A very generic dialog service for blazor.
-- Does not include any markup for dialog, so you can create and style your own dialogs.
+- It can take any component, allowing you to choose or style your own dialog markup.
+- Dialog markup not included. (Example markup from the sample project: [Link](samples/BlazorServerSample/Pages/CustomDialogs/))
 
 # Installation
 - Add package to your project
