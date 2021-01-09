@@ -1,0 +1,15 @@
+@inherits DialogTemplateBase
+
+<DialogTemplate Title="@Title">
+    <DialogBody>
+        @Content
+    </DialogBody>
+    <DialogFooter>
+        <button @onclick="Ok">Ok</button>
+    </DialogFooter>
+</DialogTemplate>
+
+@code {
+    [Parameter] public RenderFragment Content { get; set; }
+    void Ok() => Dialog.DialogService.Close(true);
+}

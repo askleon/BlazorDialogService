@@ -1,0 +1,61 @@
+@using CustomDialogs
+@inject DialogService DialogService
+
+<SampleHelper ButtonText="Person form" ShowDialog="Show" DialogResult="result"></SampleHelper>
+
+<table class="table">
+    <tr>
+        <th>Action</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    @foreach(var p in people)
+    {
+        <tr>
+            <td>
+                <button @onclick="() => people.Remove(p)">Delete</button>
+                <button @onclick="() => Edit(p)">Edit</button>
+            </td>
+            <td>@p.Name</td>
+            <td>@p.Age</td>
+        </tr>
+    }
+</table>
+
+@code {
+    DialogResult result;
+    List<Person> people = new List<Person>();
+
+    async void Show()
+    {
+        result = await DialogService.ShowDialog<PersonFormDialog>(new DialogParameters<PersonFormDialog>()
+            .Add(x => x.Title, "Add person"));
+
+        if (result.Result is Person p)
+        {
+            people.Add(p);
+        }
+
+        StateHasChanged();
+    }
+
+    async void Edit(Person person)
+    {
+        var editCopy = new Person
+        {
+            Name = person.Name,
+            Age = person.Age
+        };
+
+        var editResult = await DialogService.ShowDialog<PersonFormDialog>(new DialogParameters<PersonFormDialog>()
+            .Add(x => x.Title, $"Edit {person.Name}")
+            .Add(x => x.Person, editCopy));
+
+        if (editResult.Success && editResult.Result is Person p)
+        {
+            people.Remove(person);
+            people.Add(editCopy);
+        }
+        StateHasChanged();
+    }
+}

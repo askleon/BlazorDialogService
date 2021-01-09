@@ -1,0 +1,23 @@
+@using CustomDialogs
+@inject DialogService DialogService
+
+<SampleHelper DialogResult="result" ShowDialog="Show" ButtonText="Alert dialog"></SampleHelper>
+
+@code {
+    DialogResult result;
+    
+    async void Show()
+    {
+        result = await DialogService.ShowDialog<AlertDialog>(new DialogParameters<AlertDialog>()
+            .Add(x => x.Content, HelloWorld)
+            .Add(x => x.Title, "A message to the world."));
+
+        StateHasChanged();
+    }
+
+    RenderFragment HelloWorld => new RenderFragment(x =>
+    {
+        x.OpenComponent(0, typeof(HelloWorldComponent));
+        x.CloseComponent();
+    });
+}

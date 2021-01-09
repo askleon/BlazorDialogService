@@ -1,0 +1,34 @@
+@inherits DialogTemplateBase
+
+<DialogTemplate Title="@Title">
+    <DialogBody>
+        <EditForm Model="Person">
+            <div class="form-group">
+                <label>Name</label>
+                <InputText class="form-control" @bind-Value="Person.Name"/>
+            </div>
+            <div class="form-group">
+                <label>Age</label>
+                <InputNumber class="form-control" @bind-Value="Person.Age"/>
+            </div>
+        </EditForm>
+    </DialogBody>
+    <DialogFooter>
+        <button @onclick="Save">Save</button>
+        <button @onclick="Cancel">Cancel</button>
+    </DialogFooter>
+</DialogTemplate>
+
+@code {
+    [Parameter] public Person Person { get; set; } = new Person();
+
+    void Save()
+    {
+        Dialog.DialogService.Close(Person);
+    }
+
+    void Cancel()
+    {
+        Dialog.DialogService.Close(false);
+    }
+}

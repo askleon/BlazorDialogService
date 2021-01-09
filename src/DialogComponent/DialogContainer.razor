@@ -1,0 +1,19 @@
+@implements IDisposable
+@inject DialogService DialogService
+
+@foreach (var dialogModel in DialogService.DialogModels)
+{
+    <Dialog @key="dialogModel" DialogModel="dialogModel"></Dialog>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        DialogService.Changed += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        DialogService.Changed -= StateHasChanged;
+    }
+}

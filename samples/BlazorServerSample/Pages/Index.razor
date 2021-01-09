@@ -1,0 +1,31 @@
+@page "/"
+@using Samples
+
+<div class="row">
+
+    @foreach (var sample in samples)
+    {
+        <div class="col-3">
+            @RenderComponent(sample)
+        </div>
+    }
+
+</div>
+
+@code {
+    List<ComponentBase> samples = new List<ComponentBase>
+    {
+        new AlertSample(),
+        new ConfirmSample(),
+        new PersonFormSample(),
+    };
+
+    RenderFragment RenderComponent(ComponentBase component)
+    {
+        return new RenderFragment(x =>
+        {
+            x.OpenComponent(0, component.GetType());
+            x.CloseComponent();
+        });
+    }
+}

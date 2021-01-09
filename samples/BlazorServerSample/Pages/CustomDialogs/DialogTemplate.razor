@@ -1,0 +1,38 @@
+@inherits DialogTemplateBase
+
+<div class="modal fade show d-block" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">@Title</h5>
+                <button type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    @onclick="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                @DialogBody
+            </div>
+
+            <div class="modal-footer">
+                @DialogFooter
+            </div>
+        </div>
+    </div>
+</div>
+
+@if(!HideBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
+
+@code {
+    [Parameter] public RenderFragment DialogBody { get; set; }
+    [Parameter] public RenderFragment DialogFooter { get; set; }
+    public void Close() => Dialog.DialogService.Close(false);
+}

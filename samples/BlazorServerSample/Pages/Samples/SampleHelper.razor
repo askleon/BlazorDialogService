@@ -1,0 +1,13 @@
+<div class="row">
+    <button @onclick="ShowDialog">@ButtonText</button>
+</div>
+
+<div class="row mt-3">
+    @($"Last result: '{DialogResult?.Result}' ({DialogResult?.Success})")
+</div>
+
+@code {
+    [Parameter] public EventCallback ShowDialog { get; set; }
+    [Parameter] public DialogResult DialogResult { get; set; }
+    [Parameter] public string ButtonText { get; set; }
+}

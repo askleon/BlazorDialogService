@@ -1,0 +1,17 @@
+@using CustomDialogs
+@inject DialogService DialogService
+
+<SampleHelper ButtonText="Confirm dialog" ShowDialog="Show" DialogResult="result"></SampleHelper>
+
+@code {
+    DialogResult result;
+
+    async void Show()
+    {
+        result = await DialogService.ShowDialog<ConfirmDialog>(new DialogParameters<ConfirmDialog>()
+            .Add(x => x.Title, "Confirm")
+            .Add(x => x.Content, "Please confirm."));
+            
+        StateHasChanged();
+    }
+}
