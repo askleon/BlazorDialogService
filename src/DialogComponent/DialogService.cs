@@ -11,6 +11,11 @@ namespace BlazorDialogService.DialogComponent
         private Stack<DialogModel> dialogModels = new Stack<DialogModel>();
         public IEnumerable<DialogModel> DialogModels => dialogModels;
 
+        public Task<DialogResult> ShowDialog<T>()
+        {
+            return ShowDialog<T>(new DialogParameters<T>());
+        }
+
         public Task<DialogResult> ShowDialog<T>(DialogParametersBase parameters)
         {
             return ShowDialog(typeof(T), parameters);
