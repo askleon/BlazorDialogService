@@ -16,6 +16,12 @@ namespace BlazorDialogService.DialogComponent
             return ShowDialog<T>(new DialogParameters<T>());
         }
 
+        public Task<DialogResult> ShowDialog<T>(Func<DialogParameters<T>, DialogParameters<T>> func)
+        {
+            var dialogParameters = func(new DialogParameters<T>());
+            return ShowDialog<T>(dialogParameters);
+        }
+
         public Task<DialogResult> ShowDialog<T>(DialogParametersBase parameters)
         {
             return ShowDialog(typeof(T), parameters);

@@ -8,9 +8,10 @@
     
     async void Show()
     {
-        result = await DialogService.ShowDialog<AlertDialog>(new DialogParameters<AlertDialog>()
-            .Add(x => x.Content, HelloWorld)
-            .Add(x => x.Title, "A message to the world."));
+        result = await DialogService.ShowDialog<AlertDialog>(parameters =>
+            parameters
+                .Add(x => x.Content, HelloWorld)
+                .Add(x => x.Title, "A message to the world."));
 
         StateHasChanged();
     }
