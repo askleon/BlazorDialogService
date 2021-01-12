@@ -1,0 +1,37 @@
+name: "publish nuget package"
+
+on: 
+  release:
+    types: [published]
+
+env:
+  PROJECT_PATH: "src/DialogComponent/BlazorDialogService.DialogComponent.csproj"
+  PACKAGE_OUTPUT_PATH: "src/DialogComponent/bin/release/"
+  PACKAGE_OUTPUT_FILE: "src/DialogComponent/bin/release/BlazorDialogService.${{ github.event.release.tag_name }}.nupkg"
+  NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
+
+jobs:
+  deploy:
+    name: "deploy"
+    runs-on: "ubuntu-latest"
+   
+    steps:
+      - name: "checkout"
+        uses: actions/checkout@v2
+
+      - name: "install dotnet"
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: "5.0.x"
+
+      - name: "pack project"
+        run: dotnet pack ${{ env.PROJECT_PATH }} /p:Version=${{ github.event.release.tag_name }} -configuration Release --include-symbols --output ${{ PACKAGE_OUTPUT_PATH }}
+      
+      - name: "push package to nuget source"
+        run: dotnet nuget push ${{ env.PACKAGE_OUTPUT_FILE }} -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NUGET_SOURCE }}
+
+      - name: "upload nuget package to github release"
+        uses: actions/upload-artifact@v1
+        with:
+            name: "packages"
+            path: "${{ PACKAGE_OUTPUT_FILE }}"
