@@ -4,7 +4,7 @@
 - Dialog markup not included. (Example markup from the sample project: [Link](samples/BlazorServerSample/Pages/CustomDialogs/))
 
 # Installation
-- Add package to your project
+- Add package to your project [(NuGet link to package)](https://www.nuget.org/packages/BlazorDialogService/)
 
 - Add service to dependencies.
 ```csharp
