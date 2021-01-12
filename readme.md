@@ -9,7 +9,7 @@
 - Add service to dependencies.
 ```csharp
 // Startup.cs
-using Microsoft.Extensions.Hosting;
+using BlazorDialogService.DialogComponent;
 
 services.AddBlazorDialogService();
 ```
