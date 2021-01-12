@@ -25,7 +25,7 @@ jobs:
           dotnet-version: "5.0.x"
 
       - name: "pack project"
-        run: dotnet pack ${{ env.PROJECT_PATH }} /p:Version=${{ github.event.release.tag_name }} -configuration Release --include-symbols --output ${{ PACKAGE_OUTPUT_PATH }}
+        run: dotnet pack ${{ env.PROJECT_PATH }} /p:Version=${{ github.event.release.tag_name }} -configuration Release --include-symbols --output ${{ env.PACKAGE_OUTPUT_PATH }}
       
       - name: "push package to nuget source"
         run: dotnet nuget push ${{ env.PACKAGE_OUTPUT_FILE }} -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NUGET_SOURCE }}
@@ -34,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
             name: "packages"
-            path: "${{ PACKAGE_OUTPUT_FILE }}"
+            path: "${{ env.PACKAGE_OUTPUT_FILE }}"
