@@ -20,7 +20,7 @@
     <PackageId>LeonAsk.BlazorDialogService.DialogComponent</PackageId>
     <Authors>Leon Ask</Authors>
     <Description>A dialog service for blazor.</Description>
-    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>Blazor, Dialog, Service</PackageTags>
     <RepositoryUrl>https://github.com/askleon/BlazorDialogService</RepositoryUrl>
   </PropertyGroup>
