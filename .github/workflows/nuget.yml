@@ -29,9 +29,3 @@ jobs:
       
       - name: "push package to nuget source"
         run: dotnet nuget push ${{ env.PACKAGE_OUTPUT_FILE }} -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NUGET_SOURCE }}
-
-      - name: "upload nuget package to github release"
-        uses: actions/upload-artifact@v1
-        with:
-            name: "packages"
-            path: "${{ env.PACKAGE_OUTPUT_FILE }}"
