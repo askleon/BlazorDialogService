@@ -17,7 +17,7 @@
   <PropertyGroup>
     <VersionPrefix>1.0.0</VersionPrefix>
     <VersionSuffix>alpha</VersionSuffix>
-    <PackageId>LeonAsk.BlazorDialogService.DialogComponent</PackageId>
+    <PackageId>BlazorDialogService</PackageId>
     <Authors>Leon Ask</Authors>
     <Description>A dialog service for blazor.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
