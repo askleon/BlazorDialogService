@@ -27,8 +27,10 @@
 
     async void Show()
     {
-        result = await DialogService.ShowDialog<PersonFormDialog>(new DialogParameters<PersonFormDialog>()
-            .Add(x => x.Title, "Add person"));
+        result = await DialogService
+            .BuildDialog<PersonFormDialog>()
+            .AddParameter(x => x.Title, "Add person")
+            .ShowDialog();
 
         if (result.Result is Person p)
         {
@@ -46,9 +48,11 @@
             Age = person.Age
         };
 
-        var editResult = await DialogService.ShowDialog<PersonFormDialog>(new DialogParameters<PersonFormDialog>()
-            .Add(x => x.Title, $"Edit {person.Name}")
-            .Add(x => x.Person, editCopy));
+        var editResult = await DialogService
+            .BuildDialog<PersonFormDialog>()
+            .AddParameter(x => x.Title, $"Edit {person.Name}")
+            .AddParameter(x => x.Person, editCopy)
+            .ShowDialog();
 
         if (editResult.Success && editResult.Result is Person p)
         {

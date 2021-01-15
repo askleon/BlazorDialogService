@@ -5,15 +5,16 @@
 @code {
     DialogResult result;
     
-    async void Show()
-    {
-        result = await DialogService.ShowDialog<AlertDialog>(parameters =>
-            parameters
-                .Add(x => x.Content, HelloWorld)
-                .Add(x => x.Title, "A message to the world."));
+async void Show()
+{
+    result = await DialogService
+        .BuildDialog<AlertDialog>()
+        .AddParameter(x => x.Content, HelloWorld)
+        .AddParameter(x => x.Title, "A message to the world.")
+        .ShowDialog();
 
-        StateHasChanged();
-    }
+    StateHasChanged();
+}
 
     RenderFragment HelloWorld => new RenderFragment(x =>
     {
