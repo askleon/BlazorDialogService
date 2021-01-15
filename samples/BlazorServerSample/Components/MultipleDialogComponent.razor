@@ -1,0 +1,16 @@
+<div class="row mb-5" style="border: 1px solid black;">
+    <div class="m-3 ml-5">
+        <div class="row">
+            I am dialog: @Id
+        </div>
+        <div class="row">
+            <button @onclick="Close">Close @Id</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int Id { get; set; }
+    [CascadingParameter] public DialogControl DialogControl { get; set; }
+    void Close() => DialogControl.Close(Id);
+}

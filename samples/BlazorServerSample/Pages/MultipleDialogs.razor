@@ -1,0 +1,19 @@
+@page "/multiple-dialogs"
+@inject DialogService DialogService
+
+<SampleHelper ButtonText="Multiple dialogs" ShowDialog="Show" DialogResult="result"></SampleHelper>
+
+@code {
+    DialogResult result;
+    int counter = 0;
+
+    async void Show()
+    {
+        result = await DialogService
+            .BuildDialog<MultipleDialogComponent>()
+            .AddParameter(x => x.Id, ++counter)
+            .ShowDialog();
+
+        StateHasChanged();
+    }
+}
