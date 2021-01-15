@@ -12,6 +12,6 @@
 
 @code {
     [Parameter] public string Content { get; set; }
-    void Ok() => Dialog.DialogService.Close(true);
-    void Cancel() => Dialog.DialogService.Close(false);
+    void Ok() => DialogControl.DialogService.Close(true);
+    void Cancel() => DialogControl.DialogService.Close(false);
 }
