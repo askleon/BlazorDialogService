@@ -36,7 +36,7 @@ services.AddBlazorDialogService();
 - The dialog service was created for dialogs but can take any blazor component, like in the example below.
 - It can also handle component parameters by using `DialogParameter` argument.
    - You can see `DialogParameter` in use here [ConfirmSample.razor](samples/BlazorServerSample/Pages/Samples/ConfirmSample.razor)
-   - You can see `DialogParameter` with fluent builder here [PersonFormSample.razor](samples/BlazorServerSample/Pages/Samples/PersonFormSample.razor.razor)
+   - You can see `DialogParameter` with fluent builder here [PersonFormSample.razor](samples/BlazorServerSample/Pages/Samples/PersonFormSample.razor)
 
 ```csharp
 // BasicSample.razor
