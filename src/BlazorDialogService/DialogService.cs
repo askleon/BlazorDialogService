@@ -8,7 +8,7 @@ namespace BlazorDialogService
     public class DialogService
     {
         public event Action Changed;
-        private Stack<DialogModel> dialogModels = new Stack<DialogModel>();
+        private List<DialogModel> dialogModels = new List<DialogModel>();
         public IEnumerable<DialogModel> DialogModels => dialogModels;
 
         public DialogBuilder<T> BuildDialog<T>()
@@ -31,45 +31,19 @@ namespace BlazorDialogService
             ThrowIfNotComponent(dialogComponentType);
 
             var dialog = new DialogModel(dialogComponentType, parameters);
-            dialogModels.Push(dialog);
+            dialogModels.Add(dialog);
 
             OnChanged();
 
             return dialog.Task;
         }
 
-        public void Close(bool success)
+        public void Close(Guid dialogId, DialogResult result)
         {
-            var dialog = dialogModels.Pop();
-            var result = new DialogResult
-            {
-                Success = success,
-            };
-            dialog.TaskSource.SetResult(result);
-            OnChanged();
-        }
-
-        public void Close(object dialogResult)
-        {
-            var dialog = dialogModels.Pop();
-            var result = new DialogResult
-            {
-                Result = dialogResult,
-                Success = true,
-            };
-            dialog.TaskSource.SetResult(result);
-            OnChanged();
-        }
-
-        public void Close(Exception exception)
-        {
-            var dialog = dialogModels.Pop();
-            var result = new DialogResult
-            {
-                Success = false,
-                Exception = exception,
-            };
-            dialog.TaskSource.SetResult(result);
+            var modelIndex = dialogModels.FindIndex(x => x.Id == dialogId);
+            var model = dialogModels[modelIndex];
+            dialogModels.RemoveAt(modelIndex);
+            model.TaskSource.SetResult(result);
             OnChanged();
         }
 

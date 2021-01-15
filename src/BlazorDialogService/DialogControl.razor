@@ -5,4 +5,20 @@
 @code {
     [Parameter] public DialogModel DialogModel { get; set; }
     [Inject] public DialogService DialogService { get; set; }
+    
+    public void Close(object result) => Close(true, result);
+    
+    public void Close(Exception exception) => Close(false, null, exception);
+
+    public void Close(bool success, object result = null, Exception exception = null)
+    {
+        Close(new DialogResult
+        {
+            Success = success,
+            Result = result,
+            Exception = exception,
+        });
+    }
+
+    private void Close(DialogResult result) => DialogService.Close(DialogModel.Id, result);
 }
