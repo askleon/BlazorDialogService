@@ -1,6 +1,6 @@
 using System;
 
-namespace BlazorDialogService.DialogComponent
+namespace BlazorDialogService
 {
     public record DialogResult
     {

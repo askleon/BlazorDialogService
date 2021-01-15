@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorDialogService.DialogComponent
+namespace BlazorDialogService
 {
     public class DialogModel
     {

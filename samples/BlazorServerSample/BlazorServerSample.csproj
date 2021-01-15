@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\DialogComponent\BlazorDialogService.DialogComponent.csproj" />
+    <ProjectReference Include="..\..\src\BlazorDialogService\BlazorDialogService.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

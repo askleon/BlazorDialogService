@@ -1,4 +1,4 @@
-using BlazorDialogService.DialogComponent;
+using BlazorDialogService;
 using Microsoft.AspNetCore.Components;
 
 namespace BlazorServerSample.Pages.CustomDialogs

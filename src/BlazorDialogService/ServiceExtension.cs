@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazorDialogService.DialogComponent
+namespace BlazorDialogService
 {
     public static class ServiceExtension
     {
