@@ -11,15 +11,14 @@ namespace BlazorDialogService
         private Stack<DialogModel> dialogModels = new Stack<DialogModel>();
         public IEnumerable<DialogModel> DialogModels => dialogModels;
 
+        public DialogBuilder<T> BuildDialog<T>()
+        {
+            return new DialogBuilder<T>(x => ShowDialog<T>(x));
+        }
+
         public Task<DialogResult> ShowDialog<T>()
         {
             return ShowDialog<T>(new DialogParameters<T>());
-        }
-
-        public Task<DialogResult> ShowDialog<T>(Func<DialogParameters<T>, DialogParameters<T>> func)
-        {
-            var dialogParameters = func(new DialogParameters<T>());
-            return ShowDialog<T>(dialogParameters);
         }
 
         public Task<DialogResult> ShowDialog<T>(DialogParametersBase parameters)
