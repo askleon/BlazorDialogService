@@ -1,7 +1,7 @@
 using BlazorDialogService;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorServerSample.Pages.CustomDialogs
+namespace BlazorServerSample.Components.CustomDialogs
 {
     public abstract class DialogTemplateBase : ComponentBase
     {
