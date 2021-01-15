@@ -34,5 +34,5 @@
 @code {
     [Parameter] public RenderFragment DialogBody { get; set; }
     [Parameter] public RenderFragment DialogFooter { get; set; }
-    public void Close() => Dialog.DialogService.Close(false);
+    public void Close() => DialogControl.DialogService.Close(false);
 }

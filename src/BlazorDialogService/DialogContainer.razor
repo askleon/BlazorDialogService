@@ -3,7 +3,7 @@
 
 @foreach (var dialogModel in DialogService.DialogModels)
 {
-    <Dialog @key="dialogModel" DialogModel="dialogModel"></Dialog>
+    <DialogControl @key="dialogModel" DialogModel="dialogModel"></DialogControl>
 }
 
 @code {

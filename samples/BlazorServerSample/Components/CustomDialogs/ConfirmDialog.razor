@@ -6,10 +6,12 @@
     </DialogBody>
     <DialogFooter>
         <button @onclick="Ok">Ok</button>
+        <button @onclick="Cancel">Cancel</button>
     </DialogFooter>
 </DialogTemplate>
 
 @code {
-    [Parameter] public RenderFragment Content { get; set; }
-    void Ok() => Dialog.DialogService.Close(true);
+    [Parameter] public string Content { get; set; }
+    void Ok() => DialogControl.DialogService.Close(true);
+    void Cancel() => DialogControl.DialogService.Close(false);
 }

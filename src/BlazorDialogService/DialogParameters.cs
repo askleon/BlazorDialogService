@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorDialogService.DialogComponent
+namespace BlazorDialogService
 {
     public class DialogParameters<T> : DialogParametersBase
     {

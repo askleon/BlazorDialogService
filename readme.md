@@ -9,7 +9,7 @@
 - Add service to dependencies.
 ```csharp
 // Startup.cs
-using BlazorDialogService.DialogComponent;
+using BlazorDialogService;
 
 services.AddBlazorDialogService();
 ```
@@ -17,7 +17,7 @@ services.AddBlazorDialogService();
 - Add namespace to imports.
 ```csharp
 // _Imports.razor
-@using BlazorDialogService.DialogComponent
+@using BlazorDialogService
 ```
 
 - Add dialog container.

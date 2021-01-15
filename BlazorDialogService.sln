@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5CED3938-6A8D-4EA7-A531-9B346120CDE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDialogService.DialogComponent", "src\DialogComponent\BlazorDialogService.DialogComponent.csproj", "{D36D4F51-C553-4ACA-9F8A-907035D4FBD2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDialogService", "src\BlazorDialogService\BlazorDialogService.csproj", "{D36D4F51-C553-4ACA-9F8A-907035D4FBD2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E302D4BE-7357-431E-BEC5-47D1469A067D}"
 EndProject

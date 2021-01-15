@@ -5,9 +5,9 @@ on:
     types: [published]
 
 env:
-  PROJECT_PATH: "src/DialogComponent/BlazorDialogService.DialogComponent.csproj"
-  PACKAGE_OUTPUT_PATH: "src/DialogComponent/bin/release/"
-  PACKAGE_OUTPUT_FILE: "src/DialogComponent/bin/release/BlazorDialogService.${{ github.event.release.tag_name }}.nupkg"
+  PROJECT_PATH: "src/BlazorDialogService/BlazorDialogService.csproj"
+  PACKAGE_OUTPUT_PATH: "src/BlazorDialogService/bin/release/"
+  PACKAGE_OUTPUT_FILE: "src/BlazorDialogService/bin/release/BlazorDialogService.${{ github.event.release.tag_name }}.nupkg"
   NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
 
 jobs:
