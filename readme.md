@@ -1,7 +1,7 @@
 # About
 - A generic dialog service for blazor.
 - It can take any component, allowing you to choose or style your own dialog markup.
-- Dialog markup not included. (Example markup from the sample project: [Link](samples/BlazorServerSample/Pages/CustomDialogs/))
+- Dialog markup not included. (Example markup from the sample project: [Link](samples/BlazorServerSample/Components/CustomDialogs/))
 
 # Installation
 - Add package to your project [(NuGet link to package)](https://www.nuget.org/packages/BlazorDialogService/)
