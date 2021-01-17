@@ -71,7 +71,7 @@ services.AddBlazorDialogService();
 @code {
     [CascadingParameter] public DialogControl DialogControl { get; set; }
 
-    void CloseDialog
+    void CloseDialog()
     {
         DialogControl.Close(success: true);
     }
