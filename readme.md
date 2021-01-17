@@ -57,3 +57,23 @@ services.AddBlazorDialogService();
 // HelloWorldComponent.razor
 <h1>Hello world!</h1>
 ```
+
+## Creating your own markup
+- Use the cascading parameter [DialogControl](src/BlazorDialogService/DialogControl.razor)
+- `DialogControl.Close` is the easiest way to close your dialog
+
+```csharp
+// YourDialog.razor
+
+<h1>Hello world!</h1>
+<button @onclick="CloseDialog">Close dialog</button>
+
+@code {
+    [CascadingParameter] public DialogControl DialogControl { get; set; }
+
+    void CloseDialog
+    {
+        DialogControl.Close(success: true);
+    }
+}
+```
